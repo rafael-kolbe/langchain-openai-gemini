@@ -1,4 +1,3 @@
-import openai
 import os
 from langchain_openai import OpenAI
 from langchain.prompts import ChatPromptTemplate
@@ -7,11 +6,11 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Configuração da API Key do OpenAI
-openai.api_key = os.getenv("OPENAI_API_KEY", None)
+openai_api_key = os.getenv("OPENAI_API_KEY", None)
 
 
 # Configuração do modelo OpenAI GPT-3.5 Turbo
-chatgpt = OpenAI(api_key=openai.api_key, model="gpt-3.5-turbo", temperature=0)
+chatgpt = OpenAI(api_key=openai_api_key, model="gpt-3.5-turbo", temperature=0)
 
 
 # Template de prompt
