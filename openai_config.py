@@ -30,8 +30,7 @@ def obter_resposta(pergunta, df):
 
     try:
         resposta = chatgpt.invoke(prompt)
-        print(resposta)
-        return resposta["choices"][0]["text"]
+        return resposta.content
     except Exception as e:
         print(f"Erro ao obter resposta: {e}")
         return None

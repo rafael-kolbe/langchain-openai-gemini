@@ -14,12 +14,17 @@ def perguntar():
     pergunta = dados.get("pergunta")
     llm = dados.get("llm")
 
-    if llm == "openai":
-        resposta = openai_config.obter_resposta(pergunta, df)
-    elif llm == "gemini":
-        resposta = gemini_config.obter_resposta(pergunta, df)
+    try:
+        if llm == "openai":
+            resposta = openai_config.obter_resposta(pergunta, df)
+        elif llm == "gemini":
+            resposta = gemini_config.obter_resposta(pergunta, df)
+        else:
+            resposta = df.to_string(index=False)
 
-    return jsonify({"resposta": resposta})
+        return jsonify({"resposta": resposta})
+    except Exception as e:
+        print(e)
 
 
 if __name__ == "__main__":

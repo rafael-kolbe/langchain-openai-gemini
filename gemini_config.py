@@ -13,7 +13,6 @@ gemini = ChatGoogleGenerativeAI(
     google_api_key=google_api_key, model="gemini-pro", temperature=0
 )
 
-
 # Template de prompt
 prompt_template = ChatPromptTemplate.from_template(
     """Responda a pergunta abaixo com base nos dados fornecidos.
@@ -31,8 +30,7 @@ def obter_resposta(pergunta, df):
 
     try:
         resposta = gemini.invoke(prompt)
-        print(resposta)
-        return resposta["choices"][0]["text"]
+        return resposta.content
     except Exception as e:
         print(f"Erro ao obter resposta: {e}")
         return None
