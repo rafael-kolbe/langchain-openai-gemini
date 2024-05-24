@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Configuração da API Key do Google
-google_api_key = os.getenv("GOOGLE_GEMINI_API_KEY")
+google_api_key = os.getenv("GOOGLE_GEMINI_API_KEY", None)
 
 # Configuração do modelo Gemini do Google
 gemini = ChatGoogleGenerativeAI(

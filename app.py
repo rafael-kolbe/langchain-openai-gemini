@@ -23,5 +23,5 @@ def perguntar():
 
 
 if __name__ == "__main__":
-    port = int(os.getenv("FLASK_PORT"))
+    port = int(os.getenv("FLASK_PORT", 8080))
     app.run(debug=True, port=port)
